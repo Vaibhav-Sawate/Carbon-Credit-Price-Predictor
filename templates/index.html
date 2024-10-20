@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Credit Price Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Carbon Credit Prices</h1>
+        <form method="POST" action="/predict">
+            <label for="industry">Select Industry:</label>
+            <select id="industry" name="industry">
+                <option value="Agriculture">Agriculture</option>
+                <option value="Mechanical">Mechanical</option>
+            </select>
+            <div id="inputFields">
+                <label for="CO2_Emissions">CO2 Emissions:</label>
+                <input type="text" name="CO2_Emissions" placeholder="Enter CO2 Emissions"><br>
+                <label for="GDP">GDP:</label>
+                <input type="text" name="GDP" placeholder="Enter GDP"><br>
+                <label for="Oil_Price">Oil Price:</label>
+                <input type="text" name="Oil_Price" placeholder="Enter Oil Price"><br>
+                <label for="Coal_Price">Coal Price:</label>
+                <input type="text" name="Coal_Price" placeholder="Enter Coal Price"><br>
+                <label for="Gas_Price">Gas Price:</label>
+                <input type="text" name="Gas_Price" placeholder="Enter Gas Price"><br>
+                <label for="Renewable_Energy_Index">Renewable Energy Index:</label>
+                <input type="text" name="Renewable_Energy_Index" placeholder="Enter Renewable Energy Index"><br>
+                <label for="Temperature">Temperature:</label>
+                <input type="text" name="Temperature" placeholder="Enter Temperature"><br>
+                <label for="Trading_Volume">Trading Volume:</label>
+                <input type="text" name="Trading_Volume" placeholder="Enter Trading Volume"><br>
+                <label for="Regulatory_Changes">Regulatory Changes:</label>
+                <input type="text" name="Regulatory_Changes" placeholder="Enter Regulatory Changes"><br>
+                <label for="Technological_Advances">Technological Advances:</label>
+                <input type="text" name="Technological_Advances" placeholder="Enter Technological Advances"><br>
+                <label for="Global_Events">Global Events:</label>
+                <input type="text" name="Global_Events" placeholder="Enter Global Events"><br>
+            </div>
+            <input type="submit" value="Predict">
+        </form>
+        {% if data %}
+        <p>Predicted Carbon Credit Price: {{ data }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
